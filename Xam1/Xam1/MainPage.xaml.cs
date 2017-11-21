@@ -16,39 +16,43 @@ namespace Xam1
 
         private void Submit_Clicked(object sender, EventArgs e)
         {
-            string text = ((Entry)sender).Text;
+            string text = Entry1.Text;
             if (checkPalidrom(text))
             {
-                ((Entry)sender).Text = "Palidrom";
+                Label1.Text = "Palidrom";
             } else
             {
-                ((Entry)sender).Text = "Obyčejné slovo";
+                Label1.Text = "Obyčejné slovo";
             }
         }
 
         private bool checkPalidrom(string text)
         {
-            string[] chars = text.Split();
-
-            int x = 0;
-            foreach (string char1 in chars)
+            List<string> chars = new List<string>();
+            int y = 0;
+            foreach (char char1 in text)
             {
-                if (char1 == "c")
+                chars.Add(text[y].ToString());
+                y++;
+            }
+            
+            for (int x = 0; x < chars.Count; x++)
+            {
+                if (chars[x].ToLower() == "c" && x < chars.Count)
                 {
-                    if (chars[x+1] == "h")
+                    if (chars[x+1].ToLower() == "h")
                     {
                         chars[x] = "ch";
+                        chars.RemoveAt(x+1);
                     }
                 }
-                x++;
             }
 
-            int len = chars.Length;
-            for (int i = 0; i < len; i++)
+            for (int i = 0; i < chars.Count; i++)
             {
-                if (chars[i] == chars[len-i])
+                if ( (chars[i].ToLower()) == (chars[chars.Count-1 - i].ToLower()) )
                 {
-                    if (i == len-1)
+                    if (i == chars.Count - 1)
                     {
                         return true;
                     }
