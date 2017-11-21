@@ -16,7 +16,7 @@ namespace Xam1
 
         private void Submit_Clicked(object sender, EventArgs e)
         {
-            string text = Entry1.Text;
+            string text = (Entry1.Text).Replace(" ","");
             if (checkPalidrom(text))
             {
                 Label1.Text = "Palidrom";
