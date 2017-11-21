@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:Xam1"
+             x:Class="Xam1.MainPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label x:Name="Label1" Text="Je to palidrom?" 
+               VerticalOptions="Center" 
+               HorizontalOptions="Center" />
+            <Entry Text="Hello!"></Entry>
+            <Button Text="Otestuj" Clicked="Submit_Clicked"></Button>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
